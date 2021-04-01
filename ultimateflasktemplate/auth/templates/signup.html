@@ -1,0 +1,56 @@
+{% extends 'homebase.html' %}
+
+{% block title %} Signup {% endblock %}
+
+
+{% block body %} 
+
+
+<div class="card mt-5 w-50 mx-auto">
+    <h5 class="card-header">Sign-up</h5>
+    <div class="card-body">
+        <form method="POST" class="row g-3">
+            <div class="col-md-6">
+              <label for="validationDefault01" class="form-label">Email</label>
+              <input type="email" name ="email" class="form-control" id="validationDefault01" placeholder="example@email.com" required>
+            </div>
+        
+            <div class="col-md-6">
+              <label for="validationDefaultUsername" class="form-label">Username</label>
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                <input type="text" name="username" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationDefault01" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="validationDefault01" placeholder="over 8 characters" required>
+              </div>
+              <div class="col-md-6">
+                <label for="validationDefault01" class="form-label">Confirm Password</label>
+                <input type="password" name="password2" class="form-control" id="validationDefault01" placeholder="almost there" required>
+              </div>
+           
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" name="terms" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Agree to terms and conditions
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Sign-up</button>
+            </div>
+          </form>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+{% endblock %}
