@@ -1,17 +1,13 @@
 from flask import Blueprint, render_template, session, url_for, redirect
-
+from clankapp.models import db
 home = Blueprint('home', __name__, template_folder='templates',static_folder='static', url_prefix='/')
 
 
 @home.route('/')
 def startpage():
-    if "auth" in session:
-        print ('auth in session')
-        print(session['auth'])
-    else:
-        print ('auth not in session')
-        
-    return render_template('home.html')
+    top_recipes = db.recipes.find({})
+    
+    return render_template('home.html', top_recipes = top_recipes)
 
 
 @home.route('/clear')
