@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, session
-from ultimateflasktemplate.models import add_user, is_valid_signup, is_valid_login
+from clankapp.models import add_user, is_valid_signup, is_valid_login
 import json
 
 auth = Blueprint('auth', __name__, template_folder='templates',static_folder='static', url_prefix='/')

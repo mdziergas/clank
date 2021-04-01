@@ -1,4 +1,4 @@
-from ultimateflasktemplate import app
+from clankapp import app
 import os
 
 
