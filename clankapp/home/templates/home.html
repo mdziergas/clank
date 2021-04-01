@@ -6,46 +6,29 @@
 {% block body %} 
 
 {{session['authenticated']}}
-
-  <div class="container mt-5">
-    <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
-        <div class="col">
-          <div class="card h-100">
-            <h5 class="card-header">Featured</h5>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <h5 class="card-header">Featured</h5>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <h5 class="card-header">Featured</h5>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+{{session}}
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
+{% if top_recipes %}
+{% for recipe in top_recipes %}
+<div class="col">
+  <div class="card h-100">
+    <h5 class="card-header">{{recipe['recipe_name']}}</h5>
+    <div class="card-body">
+      <p class="card-text">{{recipe['description']}}</p>
+      <a href="/recipe/{{recipe['_id']}}" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
+      <small class="text-muted">By: {{recipe['username']}}</small>
+    </div>
   </div>
+</div>
+
+
+{% endfor %}
+{% endif %}
+  </div>
+</div>
+  
 {% endblock %}

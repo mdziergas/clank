@@ -2,6 +2,7 @@ import pymongo
 import datetime
 import os
 import bcrypt
+import datetime
 
 mongo = os.environ.get("MONGO")
 
@@ -10,6 +11,7 @@ client = pymongo.MongoClient(mongo)
 db = client['recipe_app']
 
 users = db['users']
+recipes = db['recipes']
 
 # hashing models
 def is_valid_signup(email, username, password, password2):
@@ -79,3 +81,17 @@ def add_user(username, email, password):
         'password': hash_pw,
     }
     return users.insert_one(user_data)
+
+
+def add_recipe(recipe_name, category, ingredients, instructions, username, description):
+    recipe_data = {
+        'recipe_name': recipe_name,
+        'category': category,
+        'ingredients': ingredients,
+        'instructions': instructions,
+        'username': username,
+        'description': description,
+        'date_added': datetime.datetime.now(),
+        'date_modified': datetime.datetime.now()
+    }
+    return recipes.insert_one(recipe_data)

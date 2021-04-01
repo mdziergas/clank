@@ -1,0 +1,39 @@
+{% extends 'recipebase.html' %}
+
+{% block title %} Welcome to the home page {% endblock %}
+
+
+{% block body %} 
+<div class="container">
+<div class="card m-5 w-75 mx-auto">
+    <h5 class="card-header">{{recipe['recipe_name']}}</h5>
+    <div class="row g-5">
+    <div class="card-body col">
+        <div class="card col">
+            <p class="card-header">Description</p>
+            <div class="card-body">
+                {{recipe['description']}}
+            </div>
+          </div>
+          <div class="card col">
+            <p class="card-header">Ingedients</p>
+            <div class="card-body">
+                {{recipe['ingredients']}}
+            </div>
+          </div>
+          <div class="card col">
+            <p class="card-header">Instructions</p>
+            <div class="card-body">
+                {{recipe['instructions']}}
+            </div>
+          </div>
+    </div>
+</div>
+    <div class="card-footer d-flex justify-content-between">
+        <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
+        <small class="text-muted">By: {{recipe['username']}}</small>
+      </div>
+  </div>
+</div>
+
+{% endblock %}
