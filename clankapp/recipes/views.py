@@ -26,7 +26,7 @@ def post_recipe():
 
 @recipes.route('/recipe/<_id>', methods=['GET', 'POST'])
 def recipe(_id):
-    get_recipe = db.recipes.find_one({'_id':_id})
+    get_recipe = db.recipes.find_one({'_id':ObjectId(_id)})
     username_current = session['username']
     
     if request.method == 'POST': #upvote button
@@ -35,18 +35,18 @@ def recipe(_id):
         if last_voted:
             pass
         else:
-            upvote(_id, None, username_current)
+            upvote(ObjectId(_id), None, username_current)
         if session['authenticated'] == True:
             if request.form['upvote'] == 'upvote':
                 if has_voted['upvoted'][_id] != 1:
                     print("-"*50)
-                    upvote(_id, True, username_current) # true if upvote false if downvote
+                    upvote(ObjectId(_id), True, username_current) # true if upvote false if downvote
                     flash("upvoted", category="success")
                 else:
                     flash("cant double upvote", category="danger")
             else:
                 if has_voted['upvoted'][_id] != -1:
-                    upvote(_id, False, username_current) # true if upvote flalse if downvote
+                    upvote(ObjectId(_id), False, username_current) # true if upvote flalse if downvote
                     flash("downvoted", category="danger")
                 else:
                     flash("cant double downvote", category="danger")

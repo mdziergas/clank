@@ -99,7 +99,7 @@ def add_recipe(recipe_name, category, ingredients, instructions, username, descr
     return recipes.insert_one(recipe_data)
 
 def upvote(recipeID, rating, userID):
-    recipe = recipes.find_one({'_id':ObjectId(recipeID)})
+    recipe = recipes.find_one({'_id':recipeID})
     num_upvotes = recipe.get('upvotes')
     
     current_username = userID
