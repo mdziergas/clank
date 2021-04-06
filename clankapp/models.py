@@ -114,7 +114,7 @@ def upvote(recipeID, rating):
             
         else:
             num_upvotes =-1
-           
+            
 
     query = {"_id":ObjectId(recipeID)}
     upvotes ={"$set":{'upvotes': num_upvotes}}
@@ -123,7 +123,7 @@ def upvote(recipeID, rating):
 
 def user_upvotes(username, vote, recipeID):
     user = users.find_one({'username':username})
-    
+
     query = {"username":username}
     vote = {"$set":{'upvotes': {recipeID:1}}}
 
