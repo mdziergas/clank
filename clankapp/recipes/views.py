@@ -27,12 +27,13 @@ def post_recipe():
 @recipes.route('/recipe/<_id>', methods=['GET', 'POST'])
 def recipe(_id):
     get_recipe = db.recipes.find_one({'_id':ObjectId(_id)})
-    username_current = session['username']
+    username = session['username']
     
     if request.method == 'POST': #upvote button
         if session['authenticated'] == True:
             if request.form['upvote'] == 'upvote':
                 upvote(_id, True) # true if upvote false if downvote
+                
                 flash("upvoted", category="success")
             else:
                 upvote(_id, False) # true if upvote flalse if downvote

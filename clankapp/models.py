@@ -94,7 +94,8 @@ def add_recipe(recipe_name, category, ingredients, instructions, username, descr
         'username': username,
         'description': description,
         'date_added': datetime.datetime.now(),
-        'date_modified': datetime.datetime.now()
+        'date_modified': datetime.datetime.now(),
+        'upvotes': 0
     }
     return recipes.insert_one(recipe_data)
 
@@ -119,4 +120,14 @@ def upvote(recipeID, rating):
     upvotes ={"$set":{'upvotes': num_upvotes}}
 
     return recipes.update_one(query, upvotes)
+
+def user_upvotes(username, vote, recipeID):
+    user = users.find_one({'username':username})
+    
+    query = {"username":username}
+    vote = {"$set":{'upvotes': {recipeID:1}}}
+
+    return users.update_one(query, vote)
+
+
     
