@@ -98,41 +98,25 @@ def add_recipe(recipe_name, category, ingredients, instructions, username, descr
     }
     return recipes.insert_one(recipe_data)
 
-def upvote(recipeID, rating, userID):
-    recipe = recipes.find_one({'_id':recipeID})
+def upvote(recipeID, rating):
+    recipe = recipes.find_one({'_id':ObjectId(recipeID)})
     num_upvotes = recipe.get('upvotes')
     
-    current_username = userID
-    user = users.find_one({'username': userID})
-    has_upvoted = 0
-    '''
-    if rating == None:
-        query2 = {"username":current_username}
-        upvoted_rec = {"upvoted": {recipeID: has_upvoted}}
-        users.update_one(query2, upvoted_rec)
-    '''
     if num_upvotes:
         if rating == True:
             num_upvotes +=1
-            has_upvoted = 1
         else:
             num_upvotes -=1
-            has_upvoted = -1
     else:
         if rating == True:
             num_upvotes =1
-            has_upvoted = 1
+            
         else:
             num_upvotes =-1
-            has_upvoted = -1
+           
 
-    query = {"_id":recipeID}
+    query = {"_id":ObjectId(recipeID)}
     upvotes ={"$set":{'upvotes': num_upvotes}}
-
-    query2 = {"username":userID}
-    upvoted_rec = {"$set":{"upvoted":{recipeID: has_upvoted}}}
-    print(upvoted_rec)
-    x = users.update_one(query2, upvoted_rec)
 
     return recipes.update_one(query, upvotes)
     
