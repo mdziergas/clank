@@ -3,6 +3,7 @@ import datetime
 import os
 import bcrypt
 import datetime
+from bson.objectid import ObjectId
 
 mongo = os.environ.get("MONGO")
 
@@ -79,6 +80,7 @@ def add_user(username, email, password):
         'username': username,
         'email': email,
         'password': hash_pw,
+        'upvoted': {}
     }
     return users.insert_one(user_data)
 
@@ -95,3 +97,26 @@ def add_recipe(recipe_name, category, ingredients, instructions, username, descr
         'date_modified': datetime.datetime.now()
     }
     return recipes.insert_one(recipe_data)
+
+def upvote(recipeID, rating):
+    recipe = recipes.find_one({'_id':ObjectId(recipeID)})
+    num_upvotes = recipe.get('upvotes')
+    
+    if num_upvotes:
+        if rating == True:
+            num_upvotes +=1
+        else:
+            num_upvotes -=1
+    else:
+        if rating == True:
+            num_upvotes =1
+            
+        else:
+            num_upvotes =-1
+           
+
+    query = {"_id":ObjectId(recipeID)}
+    upvotes ={"$set":{'upvotes': num_upvotes}}
+
+    return recipes.update_one(query, upvotes)
+    

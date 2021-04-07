@@ -4,10 +4,10 @@
 
 
 {% block body %} 
-
+{{session}}
 <div class="container w-75 mx-auto">
 <div class="card m-5">
-    <h5 class="card-header">{{recipe['recipe_name']}}</h5>
+    <h5 class="card-header">{{recipe['recipe_name']}} </h5>
     
     <div class="card-body col">
 
@@ -30,6 +30,13 @@
             <div class="card-body">
                 <pre>{{recipe['instructions']}}</pre>
             </div>
+          </div>
+          <div class="col m-3">
+            <form id="upvote" method="post">
+              <button class="btn btn-success" type="submit" name="upvote" form="upvote" value="upvote">Upvote</button>
+              <button class="btn btn-danger" type="submit" name="upvote" form="upvote" value="downvote">Downvote</button> <span class="mx-3"> Upvotes: {{recipe['upvotes']}}</span>
+            </form>
+            
           </div>
 
     </div>
