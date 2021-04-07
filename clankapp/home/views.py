@@ -5,7 +5,7 @@ home = Blueprint('home', __name__, template_folder='templates',static_folder='st
 
 @home.route('/')
 def startpage():
-    top_recipes = db.recipes.find({})
+    top_recipes = db.recipes.find({}).sort("upvotes", -1)
     
     return render_template('home.html', top_recipes = top_recipes)
 

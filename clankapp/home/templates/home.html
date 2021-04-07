@@ -13,10 +13,18 @@
 {% for recipe in top_recipes %}
 <div class="col">
   <div class="card h-100">
-    <h5 class="card-header">{{recipe['recipe_name']}}</h5>
+    <h5 class="card-header">{{recipe['recipe_name']}} 
+      {% if recipe['upvotes'] > 0 %}
+      <span class="badge rounded-pill bg-warning text-dark float-md-end"> {{recipe['upvotes']}}</span>
+      {% else %}
+      <span class="badge rounded-pill bg-secondary float-md-end"> {{recipe['upvotes']}}</span>
+      {% endif %}
+    </h5>
+
+
     <div class="card-body">
       <p class="card-text">{{recipe['description']}}</p>
-      <a href="/recipe/{{recipe['_id']}}" class="btn btn-primary">Go somewhere</a>
+      <a href="/recipe/{{recipe['_id']}}" class="btn btn-outline-warning text-dark">Visit Recipe</a>
     </div>
     <div class="card-footer d-flex justify-content-between">
       <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
