@@ -5,9 +5,9 @@
 
 {% block body %} 
 
-{{session['authenticated']}}
-{{session}}
+
 <div class="container mt-5">
+  <span class="badge bg-dark mb-3 p-3 fs-6 mx-2">Popular Recipes</span>
   <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
 {% if top_recipes %}
 {% for recipe in top_recipes %}
@@ -38,5 +38,44 @@
 {% endif %}
   </div>
 </div>
+
+<div class="container mt-5">
+  <span class="badge bg-dark mb-3 p-3 fs-6 mx-2">New Recipes</span>
+  <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
+{% if new_recipes %}
+{% for recipe in new_recipes %}
+<div class="col">
+  <div class="card h-100">
+    <h5 class="card-header">{{recipe['recipe_name']}} 
+      {% if recipe['upvotes'] > 0 %}
+      <span class="badge rounded-pill bg-warning text-dark float-md-end"> {{recipe['upvotes']}}</span>
+      {% else %}
+      <span class="badge rounded-pill bg-secondary float-md-end"> {{recipe['upvotes']}}</span>
+      {% endif %}
+    </h5>
+
+
+    <div class="card-body">
+      <p class="card-text">{{recipe['description']}}</p>
+      <a href="/recipe/{{recipe['_id']}}" class="btn btn-outline-warning text-dark">Visit Recipe</a>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
+      <small class="text-muted">By: {{recipe['username']}}</small>
+    </div>
+  </div>
+</div>
+
+
+{% endfor %}
+{% endif %}
+  </div>
+</div>
+
+
+
+<br />
+{{session['authenticated']}}
+{{session}}
   
 {% endblock %}
