@@ -28,16 +28,19 @@ def post_recipe():
 def recipe(_id):
     get_recipe = db.recipes.find_one({'_id':ObjectId(_id)})
     
+
+    
     
     if request.method == 'POST': #upvote button
         if session['authenticated'] == True:
-            username_current = session['username']
-            if request.form['upvote'] == 'upvote':
-                upvote(_id, True) # true if upvote false if downvote
-                flash("upvoted", category="success")
-            else:
-                upvote(_id, False) # true if upvote flalse if downvote
-                flash("downvoted", category="danger")
+            if 'upvote' in request.form:
+                username_current = session['username']
+                if request.form['upvote'] == 'upvote':
+                    upvote(_id, True) # true if upvote false if downvote
+                    flash("upvoted", category="success")
+                else:
+                    upvote(_id, False) # true if upvote flalse if downvote
+                    flash("downvoted", category="danger")
 
             get_recipe = db.recipes.find_one({'_id':ObjectId(_id)})
         else: 
