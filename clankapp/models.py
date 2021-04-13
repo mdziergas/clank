@@ -18,13 +18,14 @@ recipes = db['recipes']
 def is_valid_signup(email, username, password, password2):
     user = users.find_one({'username':username})
     email2 = users.find_one({'email':email})
-    if username == user['username']:
+
+    if user:
         data={
              'message':'Username already exists',
              'category':'error'
          }
         return data
-    elif email == email2['email']:
+    elif email2:
         data={
              'message':'Email already exists',
              'category':'error'
