@@ -94,7 +94,8 @@ def add_recipe(recipe_name, category, ingredients, instructions, username, descr
         'username': username,
         'description': description,
         'date_added': datetime.datetime.now(),
-        'date_modified': datetime.datetime.now()
+        'date_modified': datetime.datetime.now(),
+        'comments': {}
     }
     return recipes.insert_one(recipe_data)
 
