@@ -16,7 +16,21 @@ recipes = db['recipes']
 
 # hashing models
 def is_valid_signup(email, username, password, password2):
-    if len(email) < 4:
+    user = users.find_one({'username':username})
+    email2 = users.find_one({'email':email})
+    if username == user['username']:
+        data={
+             'message':'Username already exists',
+             'category':'error'
+         }
+        return data
+    elif email == email2['email']:
+        data={
+             'message':'Email already exists',
+             'category':'error'
+         }
+        return data
+    elif len(email) < 4:
         data={
              'message':'Email must be greater than 4 chars',
              'category':'error'
