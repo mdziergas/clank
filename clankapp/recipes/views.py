@@ -7,7 +7,7 @@ recipes = Blueprint('recipes', __name__, template_folder='templates',static_fold
 
 @recipes.route('/post-recipe', methods=['GET', 'POST'])
 def post_recipe():
-    if "authenticated" in session:
+    if session["authenticated"] == True:
         if request.method == 'POST':
             username = session['username']
             recipe_name = request.form['recipe_name']
