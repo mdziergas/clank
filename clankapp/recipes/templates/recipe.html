@@ -14,7 +14,7 @@
         <div class="card col m-3">
             <p class="card-header">Description</p>
             <div class="card-body">
-               <pre>{{recipe['description']}}</pre>
+               {{recipe['description']}}
             </div>
           </div>
 
@@ -47,6 +47,72 @@
       </div>
   </div>
 </div>
+
+
+
+
+
+
+
+<div class="container w-75 mx-auto">
+  <div class="card m-5">
+      <h5 class="card-header">Comments </h5>
+      
+      <div class="card-body col">
+
+        <div class="card">
+          <div class="card-header">
+            Featured
+          </div>
+          <div class="card-body">
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          
+          </div>
+          <div class="card-footer text-muted">
+            2 days ago
+          </div>
+        </div>
+
+       
+  
+      </div>
+  
+      <div class="card-footer text-muted">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Post a Comment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form method="post">
+                  
+                  <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Comment:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Send message</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
 
 <br />
 {{session}}
