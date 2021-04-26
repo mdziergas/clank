@@ -110,6 +110,7 @@ def add_recipe(recipe_name, category, ingredients, instructions, username, descr
         'description': description,
         'date_added': datetime.datetime.now(),
         'date_modified': datetime.datetime.now(),
+        'upvotes': 0,
         'comments': {}
     }
     return recipes.insert_one(recipe_data)
