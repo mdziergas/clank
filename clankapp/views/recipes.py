@@ -21,7 +21,7 @@ def post_recipe():
         print ('auth not in session')
         flash("login first", category="danger")
         
-    return render_template('post_recipe.html')
+    return render_template('recipes/post_recipe.html')
 
 
 @recipes.route('/recipe/<_id>', methods=['GET', 'POST'])
@@ -48,5 +48,5 @@ def recipe(_id):
         
 
 
-    return render_template('recipe.html', recipe=get_recipe)
+    return render_template('recipes/recipe.html', recipe=get_recipe)
 

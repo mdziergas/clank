@@ -1,9 +1,10 @@
-{% extends 'homebase.html' %}
+{% extends 'home/homebase.html' %}
 
 {% block title %} Welcome to the home page {% endblock %}
 
 
 {% block body %} 
+
 
 <div class="container mt-5">
   <span class="badge bg-dark mb-3 p-2 fs-9 mx-2 badge-color">Popular Recipes</span>
@@ -45,7 +46,7 @@
 {% for recipe in new_recipes %}
 <div class="col">
   <div class="card h-100">
-    <h5 class="card-header">{{recipe['recipe_name']}}
+    <h5 class="card-header">{{recipe['recipe_name']}} 
       {% if recipe['upvotes'] > 0 %}
       <span class="badge rounded-pill bg-warning text-dark float-md-end"> {{recipe['upvotes']}}</span>
       {% else %}
@@ -74,8 +75,6 @@
 
 
 <br />
-
-<p> Development Session Check</p>
 {{session['authenticated']}}
 {{session}}
   
