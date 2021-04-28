@@ -19,7 +19,7 @@ def signup():
         else:
             message = checked_signup['message']
             flash(message, category=checked_signup['category'])
-    return render_template('signup.html')
+    return render_template('auth/signup.html')
 
     
 
@@ -41,7 +41,7 @@ def login():
             session.clear()
             session['authenticated'] = False
 
-    return render_template('login.html')
+    return render_template('auth/login.html')
 
 @auth.route('/logout')
 def logout():

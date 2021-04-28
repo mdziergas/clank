@@ -1,7 +1,7 @@
 from flask import Flask, session
-from .home.views import home
-from .auth.views import auth
-from .recipes.views import recipes
+from .views.home import home
+from .views.auth import auth
+from .views.recipes import recipes
 import os
 
 app = Flask(__name__)
