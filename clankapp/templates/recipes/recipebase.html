@@ -40,7 +40,7 @@
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
           <input type="search" class="form-control form-control-dark" placeholder="Search...">
         </form>
-  {% if session['authenticated'] == False %}
+        {% if session.get('authenticated', False) == False %}
         <div class="text-end">
           <a href="/login" class="btn btn-light">login</a>
           <a href="/signup" class="btn btn-warning">sign-up</a>
