@@ -4,9 +4,13 @@
 
 
 {% block body %} 
+<div class="container-fluid home-header">
+<h1 class="text-center text-white pt-5">WikiBooze</h1>
+<h2 class="text-center text-white pt-3">Recipes for your favorite beverages.</h2>
+<p class="text-center pt-5"><a href="#anchor" class="text-white">Scroll Down to Explore</a></p>
+</div>
 
-
-<div class="container mt-5">
+<div class="container mt-5" id="anchor">
   <span class="badge bg-dark mb-3 p-2 fs-9 mx-2 badge-color">Popular Recipes</span>
   <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
 {% if top_recipes %}
