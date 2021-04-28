@@ -6,8 +6,6 @@
 {% block body %} 
 
 
-
-
 <div class="container mt-5">
   <span class="badge bg-dark mb-3 p-2 fs-9 mx-2 badge-color">Popular Recipes</span>
   <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
@@ -15,7 +13,7 @@
 {% for recipe in top_recipes %}
 <div class="col">
   <div class="card h-100">
-    <h5 class="card-header">{{recipe['recipe_name']}} | {{recipe['category']}}
+    <h5 class="card-header">{{recipe['recipe_name']}}
       {% if recipe['upvotes'] > 0 %}
       <span class="badge rounded-pill bg-warning text-dark float-md-end"> {{recipe['upvotes']}}</span>
       {% else %}
@@ -48,7 +46,7 @@
 {% for recipe in new_recipes %}
 <div class="col">
   <div class="card h-100">
-    <h5 class="card-header">{{recipe['recipe_name']}}  | {{recipe['category']}}
+    <h5 class="card-header">{{recipe['recipe_name']}}
       {% if recipe['upvotes'] > 0 %}
       <span class="badge rounded-pill bg-warning text-dark float-md-end"> {{recipe['upvotes']}}</span>
       {% else %}
@@ -77,6 +75,8 @@
 
 
 <br />
+
+<p> Development Session Check</p>
 {{session['authenticated']}}
 {{session}}
   
