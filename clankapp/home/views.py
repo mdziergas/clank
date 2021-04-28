@@ -10,6 +10,20 @@ def startpage():
     
     return render_template('home.html', top_recipes = top_recipes, new_recipes = new_recipes)
 
+@home.route('/alcoholic')
+def alcoholic():
+    top_recipes = db.recipes.find({'category':'Alcoholic'}).sort("upvotes", -1)
+    new_recipes = db.recipes.find({'category':'Alcoholic'}).sort("date_added", -1)
+    
+    return render_template('alcoholic.html', top_recipes = top_recipes, new_recipes = new_recipes)
+
+@home.route('/non-alcoholic')
+def nonalcoholic():
+    top_recipes = db.recipes.find({'category':'Non-alcoholic'}).sort("upvotes", -1)
+    new_recipes = db.recipes.find({'category':'Non-alcoholic'}).sort("date_added", -1)
+    
+    return render_template('nonalcoholic.html', top_recipes = top_recipes, new_recipes = new_recipes)
+
 
 @home.route('/clear')
 def clear():

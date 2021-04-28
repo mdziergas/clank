@@ -10,19 +10,26 @@
 <body>
   <nav class="p-3 navbar navbar-expand-lg navbar-dark bg-dark text-white">
     <div class="container">
-      <a class="navbar-brand" href="/">Clank</a>
+      <a class="navbar-brand" href="/">WikiBooze</a>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="/" class="nav-link px-2 text-white">Home</a>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Recipes
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/alcoholic">Alcoholic</a></li>
+              <li><a class="dropdown-item" href="/non-alcoholic">Non-Alcoholic</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/post-recipe">Post a Recipe</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a href="/post-recipe" class="nav-link px-2 text-white">Post Recipe</a>
-          </li>
+
           <li class="nav-item">
             <a href="/logout" class="nav-link px-2 text-white">logout</a>
           </li>
@@ -33,12 +40,16 @@
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
           <input type="search" class="form-control form-control-dark" placeholder="Search...">
         </form>
-  
+  {% if session['authenticated'] == false %}
         <div class="text-end">
-          <a type="button" class="btn btn-outline-light me-2" href="/login">login</a>
-          <a type="button" class="btn btn-warning" href="/signup">sign-up</a>
-      
+          <a href="/login" class="btn btn-light">login</a>
+          <a href="/signup" class="btn btn-warning">sign-up</a>
         </div>
+  {% else %}
+        <div class="text-end">
+          <a href="/logout" class="btn btn-light">logout</a>
+        </div>
+{% endif %}
       </div>
     </div>
   </nav>

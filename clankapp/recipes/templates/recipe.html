@@ -7,13 +7,14 @@
 
 <div class="container w-75 mx-auto">
 <div class="card m-5">
-    <h5 class="card-header">{{recipe['recipe_name']}} </h5>
+    <h5 class="card-header">{{recipe['recipe_name']}} | {{recipe['category']}}</h5>
     
     <div class="card-body col">
 
         <div class="card col m-3">
             <p class="card-header">Description</p>
             <div class="card-body">
+              
                {{recipe['description']}}
             </div>
           </div>
