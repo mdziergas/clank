@@ -31,8 +31,7 @@ def clear():
     return redirect(url_for('home.startpage'))
 
 @home.errorhandler(404)
-def page_not_found(e):
-    # note that we set the 404 status explicitly
+def not_found(e):
     return "404", 404
 
 
