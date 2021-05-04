@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://wikibooze.com/</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/alcoholic</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/non-alcoholic</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/post-recipe</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/login</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/signup</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/recipe/606bea542bdff4a475876952</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/recipe/606cd5174eb41c66beda36e2</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/recipe/6087418ed8ea428d8afb4177</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/recipe/608909c6140385972f59fabf</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wikibooze.com/recipe/60656e566d678e56de0f89dd</loc>
+  <lastmod>2021-05-04T02:09:43+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
