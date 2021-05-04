@@ -19,7 +19,7 @@ def post_recipe():
             flash("recipe posted", category="success")
     else:
         print ('auth not in session')
-        flash("login first", category="danger")
+        flash("login first", category="error")
         
     return render_template('recipes/post_recipe.html')
 
@@ -40,11 +40,11 @@ def recipe(_id):
                     flash("upvoted", category="success")
                 else:
                     upvote(_id, False) # true if upvote flalse if downvote
-                    flash("downvoted", category="danger")
+                    flash("downvoted", category="error")
 
             get_recipe = db.recipes.find_one({'_id':ObjectId(_id)})
         else: 
-            flash("Need to be logged in to vote", category="warning")
+            flash("Need to be logged in to vote", category="error")
         
 
 
