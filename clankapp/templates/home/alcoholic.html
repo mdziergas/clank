@@ -15,16 +15,16 @@
   <div class="card h-100">
     <h5 class="card-header">{{recipe['recipe_name']}}
       {% if recipe['upvotes'] > 0 %}
-      <span class="badge rounded-pill bg-warning text-dark float-md-end"> {{recipe['upvotes']}}</span>
+      <span class="badge upvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
       {% else %}
-      <span class="badge rounded-pill bg-secondary float-md-end"> {{recipe['upvotes']}}</span>
+      <span class="badge downvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
       {% endif %}
     </h5>
 
 
     <div class="card-body">
       <p class="card-text">{{recipe['description']}}</p>
-      <a href="/recipe/{{recipe['_id']}}" class="btn btn-outline-warning text-dark">Visit Recipe</a>
+      <a href="/recipe/{{recipe['_id']}}" class="btn btn-warning text-dark">Visit Recipe</a>
     </div>
     <div class="card-footer d-flex justify-content-between">
       <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
@@ -48,16 +48,17 @@
   <div class="card h-100">
     <h5 class="card-header">{{recipe['recipe_name']}} 
       {% if recipe['upvotes'] > 0 %}
-      <span class="badge rounded-pill bg-warning text-dark float-md-end"> {{recipe['upvotes']}}</span>
+      <span class="badge upvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
+      
       {% else %}
-      <span class="badge rounded-pill bg-secondary float-md-end"> {{recipe['upvotes']}}</span>
+      <span class="badge downvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
       {% endif %}
     </h5>
 
 
     <div class="card-body">
       <p class="card-text">{{recipe['description']}}</p>
-      <a href="/recipe/{{recipe['_id']}}" class="btn btn-outline-warning text-dark">Visit Recipe</a>
+      <a href="/recipe/{{recipe['_id']}}" class="btn btn-warning text-dark">Visit Recipe</a>
     </div>
     <div class="card-footer d-flex justify-content-between">
       <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
