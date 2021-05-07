@@ -3,3 +3,15 @@
     height: 100vh;
     width: 100%;
 }
+
+.upvote{
+    background-color: #a6e9d5;
+}
+
+.downvote{
+    background-color: #f1aeb5;
+}
+
+.number{
+    background-color: #6c757d;
+}
