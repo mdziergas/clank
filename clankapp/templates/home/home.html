@@ -12,29 +12,37 @@
 
 <div class="container mt-5" id="anchor">
   <span class="badge bg-dark mb-3 p-2 fs-9 mx-2 badge-color">Popular Recipes</span>
-  <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
+  <div class="row row-cols-1 row-cols-md-4 g-4 mx-auto">
 {% if top_recipes %}
 {% for recipe in top_recipes %}
 <div class="col">
-  <div class="card h-100">
-    <h5 class="card-header">{{recipe['recipe_name']}}
-      {% if recipe['upvotes'] > 0 %}
-      <span class="badge upvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
+  <div class="card" style="width: auto;">
+    
+    <div class="cardheader rounded-top">
+      <p class="fs-4 fw-bold align-justify">{{recipe['recipe_name']}}</p>
+      <p class="fs-6 fw-light align-justify p-0 m-0">{{recipe['category']}}</p>
+      </div>
+    {% if recipe['upvotes'] > 0 %}
+      <span class="badge rounded-0 upvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
       {% else %}
-      <span class="badge downvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
+      <span class="badge rounded-0 downvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
       {% endif %}
-    </h5>
-
-
-    <div class="card-body">
-      <p class="card-text">{{recipe['description']}}</p>
-      <a href="/recipe/{{recipe['_id']}}" class="btn btn-warning text-dark">Visit Recipe</a>
+    <div class="card-body min-height">
+      
+      <h5 class="card-title fs-6">Description</h5>
+      
+      <p class="card-text">{{recipe['description'][0:125]}}...</p>
+      
+      <a href="/recipe/{{recipe['_id']}}" class="btn btn-outline-secondary stretched-link">Visit Recipe</a>
     </div>
-    <div class="card-footer d-flex justify-content-between">
+    <div class="card-footer d-flex justify-content-between py-1 px-2 fw-light fs-6">
       <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
       <small class="text-muted">By: {{recipe['username']}}</small>
     </div>
   </div>
+  
+
+
 </div>
 
 
@@ -45,29 +53,37 @@
 
 <div class="container mt-5">
   <span class="badge bg-dark mb-3 p-2 fs-9 mx-2">New Recipes</span>
-  <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto">
+  <div class="row row-cols-1 row-cols-md-4 g-4 mx-auto">
 {% if new_recipes %}
 {% for recipe in new_recipes %}
 <div class="col">
-  <div class="card h-100">
-    <h5 class="card-header">{{recipe['recipe_name']}}
-      {% if recipe['upvotes'] > 0 %}
-      <span class="badge upvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
+  <div class="card" style="width: auto;">
+    
+    <div class="cardheader rounded-top">
+      <p class="fs-4 fw-bold align-justify">{{recipe['recipe_name']}}</p>
+      <p class="fs-6 fw-light align-justify p-0 m-0">{{recipe['category']}}</p>
+      </div>
+    {% if recipe['upvotes'] > 0 %}
+      <span class="badge rounded-0 upvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
       {% else %}
-      <span class="badge downvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
+      <span class="badge rounded-0 downvote text-dark float-md-end fs-7 fw-light"><span class="fw-normal">{{recipe['upvotes']}}</span> upvotes</span>
       {% endif %}
-    </h5>
-
-
-    <div class="card-body">
-      <p class="card-text">{{recipe['description']}}</p>
-      <a href="/recipe/{{recipe['_id']}}" class="btn btn-warning text-dark">Visit Recipe</a>
+    <div class="card-body min-height">
+      
+      <h5 class="card-title fs-6">Description</h5>
+      
+      <p class="card-text">{{recipe['description'][0:125]}}...</p>
+      
+      <a href="/recipe/{{recipe['_id']}}" class="btn btn-outline-secondary stretched-link">Visit Recipe</a>
     </div>
-    <div class="card-footer d-flex justify-content-between">
+    <div class="card-footer d-flex justify-content-between py-1 px-2 fw-light fs-6">
       <small class="text-muted">Posted: {{recipe['date_added'].strftime('%Y-%m-%d')}}</small>
       <small class="text-muted">By: {{recipe['username']}}</small>
     </div>
   </div>
+  
+
+
 </div>
 
 
@@ -80,8 +96,14 @@
 
 <br />
 
-<p> Development Session Check</p>
-{{session['authenticated']}}
-{{session}}
+
+ 
+
+
+
+
   
+
+
+
 {% endblock %}
