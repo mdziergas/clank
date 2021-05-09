@@ -15,3 +15,17 @@
 .number{
     background-color: #6c757d;
 }
+
+.visitbtn{
+    background-color: #adb5bd;
+}
+
+.min-height{
+    min-height: 14em;
+}
+
+.cardheader{
+    color: #212529;
+    background-color: #adb5bd;
+    padding: 1em;
+}
