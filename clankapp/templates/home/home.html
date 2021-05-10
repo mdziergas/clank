@@ -16,7 +16,7 @@
 {% if top_recipes %}
 {% for recipe in top_recipes %}
 <div class="col">
-  <div class="card" style="width: auto;">
+  <div class="card cardhover" style="width: auto;">
     
     <div class="cardheader rounded-top">
       <p class="fs-4 fw-bold align-justify">{{recipe['recipe_name']}}</p>
@@ -57,7 +57,7 @@
 {% if new_recipes %}
 {% for recipe in new_recipes %}
 <div class="col">
-  <div class="card" style="width: auto;">
+  <div class="card cardhover" style="width: auto;">
     
     <div class="cardheader rounded-top">
       <p class="fs-4 fw-bold align-justify">{{recipe['recipe_name']}}</p>
