@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, session, url_for, redirect, abort, send_from_directory, request
 from clankapp.models import db
 home = Blueprint('home', __name__, template_folder='templates',static_folder='static', url_prefix='/')
+recipes = db['recipes']
 
 
 @home.route('/')
@@ -29,6 +30,18 @@ def nonalcoholic():
 def clear():
     session.clear()
     return redirect(url_for('home.startpage'))
+
+@home.route('/search', methods=['GET','POST'])
+def search():
+    if request.method == 'POST':
+        form = request.form
+        search_term = form['search_string']
+        if (search_term != ''):
+            return render_template('home/search.html', all_recipes=recipes.find({'$text':{'$search': search_term}}))
+        return render_template('home/search.html', message='Nothing Found')
+    return render_template('home/search.html', message='Nothing Found')
+
+
 
 @home.errorhandler(404)
 def not_found(e):

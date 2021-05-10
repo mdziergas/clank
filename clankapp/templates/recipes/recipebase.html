@@ -56,8 +56,9 @@ content="Discover recipes for your taste buds. Explore countless recipes created
          
           
         </ul>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search...">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="{{ url_for('home.search') }}" method="POST">
+          <input type="search" name="search_string" class="form-control form-control-dark" placeholder="Search...">
+          
         </form>
         {% if session.get('authenticated', False) == False %}
         <div class="text-end">
