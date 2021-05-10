@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, session
+from flask import Blueprint, render_template, request, flash, session, redirect, url_for
 from clankapp.models import add_user, is_valid_signup, is_valid_login
 import json
 
@@ -34,7 +34,7 @@ def login():
             session["username"] = username
             session['authenticated'] = True
             flash('Logged in', category='success')
-            return f"User: {session['username']}, Authenticated: {session['authenticated']}"
+            return redirect(url_for('auth.login'))
             
         else:
             flash('Wrong username or password', category='error')
@@ -48,5 +48,5 @@ def logout():
     session.clear()
     session['authenticated'] = False
     
-    return "logged out"
+    return redirect(url_for('auth.login'))
 
